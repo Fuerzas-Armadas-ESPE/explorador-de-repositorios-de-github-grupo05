@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 
-const RepoList = ({ username }) => {
+const RepoList = ({ username, filterBySize }) => {
   const [repos, setRepos] = useState([]);
 
   useEffect(() => {
@@ -11,7 +11,14 @@ const RepoList = ({ username }) => {
         const response = await axios.get(
           `https://api.github.com/users/${username}/repos`
         );
-        const sortedRepos = response.data.sort((a, b) => b.size - a.size);
+        let filteredRepos = response.data;
+
+        // Aplicar el filtro según el tamaño si se especifica
+        if (filterBySize) {
+          filteredRepos = filteredRepos.filter((repo) => repo.size > filterBySize);
+        }
+
+        const sortedRepos = filteredRepos.sort((a, b) => b.size - a.size);
         const topRepos = sortedRepos.slice(0, 5);
         setRepos(topRepos);
       } catch (error) {
@@ -20,11 +27,11 @@ const RepoList = ({ username }) => {
     };
 
     fetchData();
-  }, [username]);
+  }, [username, filterBySize]);
 
   return (
     <div>
-      <h2>Top 5 repositorios con más participación de {username}</h2>
+      <h2>Top 5 repositorios de {username}</h2>
       <ul>
         {repos.map((repo) => (
           <li key={repo.id}>
@@ -38,6 +45,8 @@ const RepoList = ({ username }) => {
 
 RepoList.propTypes = {
   username: PropTypes.string.isRequired,
+  filterBySize: PropTypes.number, // Nuevo prop para filtrar por tamaño
 };
-
+qA>zsqsA
 export default RepoList;
+

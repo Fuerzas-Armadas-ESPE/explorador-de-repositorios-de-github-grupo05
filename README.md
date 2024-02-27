@@ -17,7 +17,7 @@ Este es un proyecto de exploración de repositorios de GitHub desarrollado con R
 
 - **Filtrado de Repositorios:** Permitir a los usuarios filtrar los repositorios por diferentes criterios, como el número de estrellas, la fecha de creación o el idioma predominante.
 
-- **Mejoras en la Interfaz de Usuario:** Realizar mejoras adicionales en la interfaz de usuario, como agregar animaciones suaves, mejorar la accesibilidad y optimizar el diseño para dispositivos móviles.
+- **Mejoras en la  Interfaz de Usuario:** Realizar mejoras adicionales en la interfaz de usuario, como agregar animaciones suaves, mejorar la accesibilidad y optimizar el diseño para dispositivos móviles.
 
 - **Implementación de Pruebas Automatizadas:** Desarrollar pruebas automatizadas utilizando herramientas como Jest y React Testing Library para garantizar la estabilidad y la calidad del código a medida que el proyecto crece y se desarrolla.
 
